@@ -1,0 +1,28 @@
+﻿  GameBoard.cpp
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(30,64): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+          with
+          [
+              T=float
+          ]
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(30,46): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+          with
+          [
+              T=float
+          ]
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(39,53): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+          with
+          [
+              T=float
+          ]
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(39,38): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+          with
+          [
+              T=float
+          ]
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(53,45): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(53,28): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(256,103): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(256,57): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(261,103): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(261,57): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+  Chess.vcxproj -> C:\Users\ninja\source\repos\Chess\x64\Debug\Chess.exe
