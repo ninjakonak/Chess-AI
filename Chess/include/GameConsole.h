@@ -19,6 +19,20 @@ private:
 
 	void InitVariables();
 
+	sf::Texture blackPawnTexture;
+	sf::Texture blackQueenTexture;
+	sf::Texture blackKnightTexture;
+	sf::Texture blackKingTexture;
+	sf::Texture blackBishopTexture;
+	sf::Texture blackRookTexture;
+
+	sf::Texture whiteKingTexture;
+	sf::Texture whitePawnTexture;
+	sf::Texture whiteQueenTexture;
+	sf::Texture whiteRookTexture;
+	sf::Texture whiteBishopTexture;
+	sf::Texture whiteKnightTexture;
+
 	GameBoard board;
 
 	sf::RenderWindow* window;

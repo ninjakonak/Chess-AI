@@ -1,28 +1,49 @@
 ﻿  GameBoard.cpp
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(30,64): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,64): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
           with
           [
               T=float
           ]
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(30,46): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,46): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
           with
           [
               T=float
           ]
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(39,53): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,53): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
           with
           [
               T=float
           ]
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(39,38): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,38): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
           with
           [
               T=float
           ]
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(53,45): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(53,28): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(256,103): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(256,57): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(261,103): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\source\repos\Chess\Chess\src\GameBoard.cpp(261,57): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-  Chess.vcxproj -> C:\Users\ninja\source\repos\Chess\x64\Debug\Chess.exe
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,45): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,28): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(346,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(346,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(350,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(350,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(354,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(354,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(358,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(358,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(362,108): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(362,62): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(366,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(366,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(374,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(374,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(378,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(378,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(382,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(382,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(386,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(386,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(390,108): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(390,62): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(394,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(394,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(327,7): warning C4101: 'notationSquare': yerel değişken başvurusu kaldırıldı
+  Chess.vcxproj -> C:\Users\ninja\Chess-AI\x64\Debug\Chess.exe

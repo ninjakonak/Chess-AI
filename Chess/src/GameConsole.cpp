@@ -15,7 +15,14 @@ void GameConsole::InitVariables() {
 	this->boardWidth = 800;
 	this->CreateWindow();
 	this->board = GameBoard(this->window, this->boardWidth, this->boardHeight);
+	this->board.InitTextures(this->whitePawnTexture, this->whiteKnightTexture,
+							 this->whiteBishopTexture, this->whiteRookTexture,
+							 this->whiteQueenTexture, this->whiteKingTexture,
+							 this->blackPawnTexture, this->blackKnightTexture,
+							 this->blackBishopTexture, this->blackRookTexture,
+							 this->blackQueenTexture, this->blackKingTexture);
 }
+
 
 
 void GameConsole::CreateWindow() {

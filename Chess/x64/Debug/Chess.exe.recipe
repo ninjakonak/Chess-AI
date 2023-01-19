@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\ninja\source\repos\Chess\x64\Debug\Chess.exe</FullPath>
+      <FullPath>C:\Users\ninja\Chess-AI\x64\Debug\Chess.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

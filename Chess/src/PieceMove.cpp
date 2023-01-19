@@ -22,15 +22,28 @@ void PieceMove::InitPieces() {
 		yPos = (i / 24);
 
 		if (this->notation.at(i + 1) == 'b') {
-			this->bishop.SetColor(this->notation.at(i));
-			this->bishop.SetCoordinates(sf::Vector2i(xPos, yPos));
+			this->bishop.Init(this->notation.at(i), sf::Vector2i(xPos, yPos));
 			this->bishops.push_back(this->bishop);
 		}
 
 		if (this->notation.at(i + 1) == 'r') {
-			this->rook.SetColor(this->notation.at(i));
-			this->rook.SetCoordinates(sf::Vector2i(xPos, yPos));
+			this->rook.Init(this->notation.at(i), sf::Vector2i(xPos, yPos));
 			this->rooks.push_back(this->rook);
+		}
+
+		if (this->notation.at(i + 1) == 'n') {
+			this->knight.Init(this->notation.at(i), sf::Vector2i(xPos, yPos));
+			this->knights.push_back(this->knight);
+		}
+
+		if (this->notation.at(i + 1) == 'p') {
+			this->pawn.Init(this->notation.at(i), sf::Vector2i(xPos, yPos));
+			this->pawns.push_back(this->pawn);
+		}
+
+		if (this->notation.at(i + 1) == 'q') {
+			this->queen.Init(this->notation.at(i), sf::Vector2i(xPos, yPos));
+			this->queens.push_back(this->queen);
 		}
 	}
 
@@ -50,22 +63,18 @@ std::vector<sf::Vector2i> PieceMove::legalMoves(sf::Vector2i selectedTile, std::
 	}
 
 	if (piece[1] == 'p') {
-		moves.push_back(sf::Vector2i(selectedTile.x, selectedTile.y + color));
-		
-		if ((selectedTile.y == 6 && color == -1) || (selectedTile.y == 1 && color == 1)) {
-			moves.push_back(sf::Vector2i(selectedTile.x, selectedTile.y + color * 2));
+		for (auto& piece : this->pawns) {
+			if (selectedTile == piece.coordinates) {
+				moves = piece.legalMoves(notation, selectedTile);
+			}
 		}
 	}
 	if (piece[1] == 'n') {
-		moves.push_back(sf::Vector2i(selectedTile.x - 2, selectedTile.y + color));
-		moves.push_back(sf::Vector2i(selectedTile.x + 2, selectedTile.y + color));
-		moves.push_back(sf::Vector2i(selectedTile.x + 1, selectedTile.y + color * 2));
-		moves.push_back(sf::Vector2i(selectedTile.x - 1, selectedTile.y + color * 2));
-
-		moves.push_back(sf::Vector2i(selectedTile.x - 2, selectedTile.y + -color));
-		moves.push_back(sf::Vector2i(selectedTile.x + 2, selectedTile.y + -color));
-		moves.push_back(sf::Vector2i(selectedTile.x + 1, selectedTile.y + -color * 2));
-		moves.push_back(sf::Vector2i(selectedTile.x - 1, selectedTile.y + -color * 2));
+		for (auto& piece : this->knights) {
+			if (selectedTile == piece.coordinates) {
+				moves = piece.legalMoves(notation, selectedTile);
+			}
+		}
 	}
 
 	if (piece[1] == 'b') {
@@ -85,10 +94,28 @@ std::vector<sf::Vector2i> PieceMove::legalMoves(sf::Vector2i selectedTile, std::
 		}
 	}
 
+	if (piece[1] == 'q') {
+		for (auto& piece : this->queens) {
+			if (selectedTile == piece.coordinates) {
+				moves = piece.legalMoves(notation, selectedTile);
+			}
+		}
+	}
+
 	return moves;
 }
 
 void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece) {
+
+	if (piece == 'p') {
+		for (auto& piece : this->pawns) {
+			if (selectedTile == piece.coordinates) {
+				piece.SetCoordinates(targetTile);
+				piece.CheckMoved();
+			}
+		}
+	}
+
 	if (piece == 'b') {
 		for (auto& piece : this->bishops) {
 			if (selectedTile == piece.coordinates) {
@@ -104,9 +131,27 @@ void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile,
 			}
 		}
 	}
+
+	if (piece == 'n') {
+		for (auto& piece : this->knights) {
+			if (selectedTile == piece.coordinates) {
+				piece.SetCoordinates(targetTile);
+			}
+		}
+	}
+
+	if (piece == 'q') {
+		for (auto& piece : this->queens) {
+			if (selectedTile == piece.coordinates) {
+				piece.SetCoordinates(targetTile);
+			}
+		}
+	}
 }
 
 std::string PieceMove::NewNotation(std::string notation, sf::Vector2i selectedTile, sf::Vector2i targetTile, std::string selectedPieceValue) {
+	
+	
 	int xPos = 0;
 	int yPos = 0;
 

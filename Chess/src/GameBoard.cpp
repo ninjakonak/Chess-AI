@@ -4,6 +4,8 @@ GameBoard::GameBoard() {
 
 }
 
+
+
 GameBoard::GameBoard(sf::RenderWindow* window, int boardWidth, int boardHeight) {
 	this->window = window;
 	
@@ -17,11 +19,11 @@ GameBoard::GameBoard(sf::RenderWindow* window, int boardWidth, int boardHeight) 
 GameBoard::~GameBoard() {
 	
 }
-
 void GameBoard::InitVariables() {
 	this->TileSize = this->height / 8;
 
 	this->InitTile();
+	
 
 	this->pieceWidth = 48;
 	this->pieceHeight = 48;
@@ -37,6 +39,94 @@ void GameBoard::InitVariables() {
 
 void GameBoard::InitTile() {
 	this->tile.setSize(sf::Vector2f(this->TileSize,this->TileSize));
+}
+
+
+void GameBoard::InitTextures(sf::Texture blackPawn, sf::Texture blackKnight,
+	sf::Texture blackBishop, sf::Texture blackRook,
+	sf::Texture blackQueen, sf::Texture blackKing,
+	sf::Texture whitePawn, sf::Texture whiteKnight,
+	sf::Texture whiteBishop, sf::Texture whiteRook,
+	sf::Texture whiteQueen, sf::Texture whiteKing) {
+
+	this->blackPawnTexture = blackPawn;
+	this->blackBishopTexture = blackBishop;
+	this->blackKingTexture = blackKing;
+	this->blackKnightTexture = blackKnight;
+	this->blackQueenTexture = blackQueen;
+	this->blackRookTexture = blackRook;
+
+	this->whitePawnTexture = whitePawn;
+	this->whiteBishopTexture = whiteBishop;
+	this->whiteKingTexture = whiteKing;
+	this->whiteKnightTexture = whiteKnight;
+	this->whiteQueenTexture = whiteQueen;
+	this->whiteRookTexture = whiteRook;
+
+	if (!this->whitePawnTexture.loadFromFile("assets/white_pawn.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->whiteBishopTexture.loadFromFile("assets/white_bishop.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->whiteKnightTexture.loadFromFile("assets/white_knight.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->whiteRookTexture.loadFromFile("assets/white_rook.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->whiteQueenTexture.loadFromFile("assets/white_queen.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->whiteKingTexture.loadFromFile("assets/white_king.png")) {
+		std::cout << "error";
+	}
+
+
+
+	if (!this->blackPawnTexture.loadFromFile("assets/black_pawn.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->blackBishopTexture.loadFromFile("assets/black_bishop.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->blackKnightTexture.loadFromFile("assets/black_knight.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->blackRookTexture.loadFromFile("assets/black_rook.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->blackQueenTexture.loadFromFile("assets/black_queen.png")) {
+		std::cout << "error";
+	}
+
+	if (!this->blackKingTexture.loadFromFile("assets/black_king.png")) {
+		std::cout << "error";
+	}
+
+	this->whitePawnSprite.setTexture(this->whitePawnTexture);
+	this->whiteKnightSprite.setTexture(this->whiteKnightTexture);
+	this->whiteBishopSprite.setTexture(this->whiteBishopTexture);
+	this->whiteRookSprite.setTexture(this->whiteRookTexture);
+	this->whiteQueenSprite.setTexture(this->whiteQueenTexture);
+	this->whiteKingSprite.setTexture(this->whiteKingTexture);
+
+	this->blackPawnSprite.setTexture(this->blackPawnTexture);
+	this->blackKnightSprite.setTexture(this->blackKnightTexture);
+	this->blackBishopSprite.setTexture(this->blackBishopTexture);
+	this->blackRookSprite.setTexture(this->blackRookTexture);
+	this->blackQueenSprite.setTexture(this->blackQueenTexture);
+	this->blackKingSprite.setTexture(this->blackKingTexture);
+
 }
 
 void GameBoard::DrawBoard() {
@@ -143,6 +233,7 @@ void GameBoard::CheckEvents() {
 							}
 							if (changeNotation) {
 								this->notation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue);
+								
 								this->PieceMover.ChangeNotation(this->notation);
 
 
@@ -238,30 +329,73 @@ void GameBoard::DrawPieces() {
 	
 	
 
-	for (int y = 0; y < this->notation.length(); y++) {
+	for (int i = 0; i < this->notation.length(); i += 3) {
 
-		notationSquare = this->notation.at(y);
+		char color = this->notation.at(i);
+		char piece = this->notation.at(i + 1);
 
-		if (notationSquare == ',') {
-			xPos += 1;
+		xPos = (i / 3) % 8;
+		yPos = (i / 24);
+
+		
+		
+
+		if (color == 'W') {
+
+			if (piece == 'p') {
+				this->whitePawnSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whitePawnSprite);
+			}
+			if (piece == 'n') {
+				this->whiteKnightSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whiteKnightSprite);
+			}
+			if (piece == 'b') {
+				this->whiteBishopSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whiteBishopSprite);
+			}
+			if (piece == 'r') {
+				this->whiteRookSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whiteRookSprite);
+			}
+			if (piece == 'q') {
+				this->whiteQueenSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whiteQueenSprite);
+			}
+			if (piece == 'k') {
+				this->whiteKingSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->whiteKingSprite);
+			}
 		}
 
-		if (xPos == 8) {
-			xPos = 0;
-			yPos += 1;
-		}
+		if (color == 'B') {
 
-		if(notationSquare == 'B'){
-			this->pieceTexture.setFillColor(sf::Color::Black);
-			this->pieceTexture.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+			if (piece == 'p') {
+				this->blackPawnSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackPawnSprite);
+			}
+			if (piece == 'n') {
+				this->blackKnightSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackKnightSprite);
+			}
+			if (piece == 'b') {
+				this->blackBishopSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackBishopSprite);
+			}
+			if (piece == 'r') {
+				this->blackRookSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackRookSprite);
+			}
+			if (piece == 'q') {
+				this->blackQueenSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackQueenSprite);
+			}
+			if (piece == 'k') {
+				this->blackKingSprite.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
+				this->window->draw(this->blackKingSprite);
+			}
 		}
-
-		if (notationSquare == 'W') {
-			this->pieceTexture.setFillColor(sf::Color::White);
-			this->pieceTexture.setPosition(xPos * this->TileSize + this->pieceWidth / 2, yPos * this->TileSize + this->pieceHeight / 2);
-		}
-
-		this->window->draw(this->pieceTexture);
+		
 	}
 	
 

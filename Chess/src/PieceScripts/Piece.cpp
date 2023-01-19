@@ -8,6 +8,18 @@ void Piece::SetCoordinates(sf::Vector2i tile) {
 	this->coordinates = tile;
 }
 
+void Piece::CheckMoved() {
+	if (this->movedOnce == false) {
+		this->movedOnce = true;
+	}
+}
+
+void Piece::Init(char color, sf::Vector2i position) {
+	this->SetColor(color);
+	this->SetCoordinates(position);
+	this->movedOnce = false;
+}
+
 std::string Piece::findSquareValue(std::string notation, sf::Vector2i tile) {
 
 	sf::Vector2i pos = sf::Vector2i(0,0);

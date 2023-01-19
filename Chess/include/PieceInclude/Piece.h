@@ -8,6 +8,7 @@
 #include<SFML/Graphics.hpp>
 
 #include<iostream>
+#include<algorithm>
 
 class Piece
 {
@@ -18,6 +19,8 @@ public:
 
 	void SetColor(char color);
 	void SetCoordinates(sf::Vector2i tile);
+	void CheckMoved();
+	void Init(char color, sf::Vector2i position);
 
 	std::string findSquareValue(std::string notation, sf::Vector2i tile);
 

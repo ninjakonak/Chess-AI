@@ -146,6 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp" />
+    <ClCompile Include="src\PieceScripts\Queen.cpp" />
+    <ClCompile Include="src\PieceScripts\Knight.cpp" />
+    <ClCompile Include="src\PieceScripts\Pawn.cpp" />
     <ClCompile Include="src\PieceScripts\Rook.cpp" />
     <ClCompile Include="src\PieceScripts\Bishop.cpp" />
     <ClCompile Include="src\PieceScripts\Piece.cpp" />
@@ -156,10 +159,13 @@
   <ItemGroup>
     <ClInclude Include="include\GameBoard.h" />
     <ClInclude Include="include\GameConsole.h" />
+    <ClInclude Include="include\PieceInclude\Pawn.h" />
     <ClInclude Include="include\PieceMove.h" />
     <ClInclude Include="include\PieceInclude\Piece.h" />
     <ClInclude Include="include\PieceInclude\Bishop.h" />
     <ClInclude Include="include\PieceInclude\Rook.h" />
+    <ClInclude Include="include\PieceInclude\Knight.h" />
+    <ClInclude Include="include\PieceInclude\Queen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

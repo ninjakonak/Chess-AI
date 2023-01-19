@@ -9,6 +9,9 @@
 
 #include"PieceInclude/Bishop.h"
 #include"PieceInclude/Rook.h"
+#include"PieceInclude/Knight.h"
+#include"PieceInclude/Pawn.h"
+#include"PieceInclude/Queen.h"
 
 #include<iostream>
 
@@ -39,6 +42,15 @@ private:
 
 	Rook rook;
 	std::vector<Rook> rooks;
+
+	Knight knight;
+	std::vector<Knight> knights;
+
+	Pawn pawn;
+	std::vector<Pawn> pawns;
+
+	Queen queen;
+	std::vector<Queen> queens;
 
 	void InitPieces();
 	void UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece);

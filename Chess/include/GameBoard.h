@@ -17,6 +17,13 @@ public:
 	void DrawBoard();
 	void Update();
 
+	void InitTextures(sf::Texture blackPawn, sf::Texture blackKnight, 
+					  sf::Texture blackBishop, sf::Texture blackRook,
+					  sf::Texture blackQueen, sf::Texture blackKing,
+					  sf::Texture whitePawn, sf::Texture whiteKnight,
+					  sf::Texture whiteBishop, sf::Texture whiteRook,
+					  sf::Texture whiteQueen, sf::Texture whiteKing);
+
 	GameBoard(sf::RenderWindow* window, int boardWidth, int boardHeight);
 	GameBoard();
 	~GameBoard();
@@ -32,6 +39,42 @@ private:
 	sf::RectangleShape tile;
 
 	sf::RectangleShape pieceTexture;
+	
+	sf::Sprite blackPawnSprite;
+	sf::Texture blackPawnTexture;
+
+	sf::Sprite blackKnightSprite;
+	sf::Texture blackKnightTexture;
+
+	sf::Sprite blackBishopSprite;
+	sf::Texture blackBishopTexture;
+
+	sf::Sprite blackRookSprite;
+	sf::Texture blackRookTexture;
+
+	sf::Sprite blackQueenSprite;
+	sf::Texture blackQueenTexture;
+
+	sf::Sprite blackKingSprite;
+	sf::Texture blackKingTexture;
+
+	sf::Sprite whitePawnSprite;
+	sf::Texture whitePawnTexture;
+
+	sf::Sprite whiteKnightSprite;
+	sf::Texture whiteKnightTexture;
+
+	sf::Sprite whiteBishopSprite;
+	sf::Texture whiteBishopTexture;
+
+	sf::Sprite whiteRookSprite;
+	sf::Texture whiteRookTexture;
+
+	sf::Sprite whiteQueenSprite;
+	sf::Texture whiteQueenTexture;
+
+	sf::Sprite whiteKingSprite;
+	sf::Texture whiteKingTexture;
 
 	int pieceWidth;
 	int pieceHeight;
