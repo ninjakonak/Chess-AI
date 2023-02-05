@@ -206,8 +206,15 @@ void GameBoard::CheckEvents() {
 							
 							
 
-							std::string tempNotation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue);
+							std::string tempNotation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue, false);
+
+							std::string notation = this->notation;
+
+							this->notation = tempNotation;
+
+							std::cout << this->notation << "\n";
 							
+
 							
 							
 							char color;
@@ -231,17 +238,21 @@ void GameBoard::CheckEvents() {
 
 								
 							}
+							
 							if (changeNotation) {
-								this->notation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue);
+								this->notation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue, true);
 								
 								this->PieceMover.ChangeNotation(this->notation);
 
 
-
+								
 
 								this->Turn++;
 								this->Turn %= 2;
 								this->selected = false;
+							}
+							else {
+								this->notation = notation;
 							}
 						}
 					}

@@ -12,6 +12,7 @@
 #include"PieceInclude/Knight.h"
 #include"PieceInclude/Pawn.h"
 #include"PieceInclude/Queen.h"
+#include"PieceInclude/King.h"
 
 #include<iostream>
 
@@ -24,7 +25,7 @@ public:
 
 	std::vector<sf::Vector2i> legalMoves(sf::Vector2i selectedTile, std::string notation, std::string piece);
 
-	std::string NewNotation(std::string notation, sf::Vector2i selectedTile, sf::Vector2i targetTile, std::string selectedPieceValue);
+	std::string NewNotation(std::string notation, sf::Vector2i selectedTile, sf::Vector2i targetTile, std::string selectedPieceValue, bool change);
 	void ChangeNotation(std::string notation);
 	
 	std::vector<sf::Vector2i> GetMoves(char color, std::string notation);
@@ -52,8 +53,13 @@ private:
 	Queen queen;
 	std::vector<Queen> queens;
 
+	King king;
+	std::vector<King> kings;
+
 	void InitPieces();
 	void UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece);
+
+	std::string FindSquareVal(int x, int y, std::string notation);
 
 };
 

@@ -1,49 +1,52 @@
-﻿  GameBoard.cpp
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,64): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+﻿  Chess.cpp
+  GameBoard.cpp
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,46): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(32,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,53): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,38): warning C4244: 'bağımsız değişken': 'int' - 'T' dönüşümü; veri kaybı olabilir
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(41,38): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,45): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,28): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(346,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(346,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(350,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(350,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(354,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(354,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(358,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(358,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(362,108): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(362,62): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(366,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(366,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(374,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(374,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(378,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(378,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(382,109): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(382,63): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(386,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(386,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(390,108): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(390,62): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(394,107): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(394,61): warning C4244: 'bağımsız değişken': 'int' - 'float' dönüşümü; veri kaybı olabilir
-C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(327,7): warning C4101: 'notationSquare': yerel değişken başvurusu kaldırıldı
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(143,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(357,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(357,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(361,109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(361,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(365,109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(365,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(369,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(369,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(373,108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(373,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(377,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(377,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(385,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(385,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(389,109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(389,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(393,109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(393,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(397,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(397,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(401,108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(401,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(405,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(405,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\ninja\Chess-AI\Chess\src\GameBoard.cpp(338,7): warning C4101: 'notationSquare': unreferenced local variable
+  GameConsole.cpp
+  Generating Code...
   Chess.vcxproj -> C:\Users\ninja\Chess-AI\x64\Debug\Chess.exe

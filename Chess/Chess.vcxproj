@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp" />
+    <ClCompile Include="src\PieceScripts\King.cpp" />
     <ClCompile Include="src\PieceScripts\Queen.cpp" />
     <ClCompile Include="src\PieceScripts\Knight.cpp" />
     <ClCompile Include="src\PieceScripts\Pawn.cpp" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="include\GameBoard.h" />
     <ClInclude Include="include\GameConsole.h" />
+    <ClInclude Include="include\PieceInclude\King.h" />
     <ClInclude Include="include\PieceInclude\Pawn.h" />
     <ClInclude Include="include\PieceMove.h" />
     <ClInclude Include="include\PieceInclude\Piece.h" />
