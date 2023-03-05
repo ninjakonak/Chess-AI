@@ -33,7 +33,7 @@ private:
 	sf::Texture whiteBishopTexture;
 	sf::Texture whiteKnightTexture;
 
-	GameBoard board;
+	GameBoard* board;
 
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;

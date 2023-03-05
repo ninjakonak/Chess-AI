@@ -1,13 +1,8 @@
 #include "../../include/PieceInclude/Queen.h"
 
-Queen::Queen() {
 
-}
 
-Queen::Queen(char color, sf::Vector2i tile){
-	this->color = color;
-	this->coordinates = tile;
-}
+
 
 std::vector<sf::Vector2i> Queen::Diagonals(std::string notation, sf::Vector2i selectedTile) {
 	std::vector<sf::Vector2i> moves;

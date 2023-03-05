@@ -10,8 +10,8 @@ public:
 
 	std::vector<sf::Vector2i> legalMoves(std::string notation, sf::Vector2i selectedTile);
 
-	Bishop();
-	Bishop(char color, sf::Vector2i tile);
+	
+	
 };
 
 #endif

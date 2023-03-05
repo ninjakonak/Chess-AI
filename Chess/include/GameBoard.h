@@ -79,6 +79,8 @@ private:
 	int pieceWidth;
 	int pieceHeight;
 
+	int turnCounter;
+
 	bool mousePressed = false;
 	bool selected;
 
@@ -92,7 +94,7 @@ private:
 	void InitVariables();
 
 	
-	/*
+	
 	std::string notation = 
 		"Br,Bn,Bb,Bq,Bk,Bb,Bn,Br,"
 		"Bp,Bp,Bp,Bp,Bp,Bp,Bp,Bp,"
@@ -103,8 +105,8 @@ private:
 		"Wp,Wp,Wp,Wp,Wp,Wp,Wp,Wp,"
 		"Wr,Wn,Wb,Wq,Wk,Wb,Wn,Wr,";
 
-	*/
-
+	
+	/*
 	std::string notation =
 		"00,00,00,00,00,00,00,00,"
 		"00,Bp,00,00,00,00,00,00,"
@@ -114,6 +116,7 @@ private:
 		"00,00,00,00,00,00,00,00,"
 		"Wk,00,00,00,00,00,00,00,"
 		"00,00,00,00,00,00,00,00,";
+	*/
 	
 	char Turn = 0;
 	

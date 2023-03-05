@@ -21,7 +21,7 @@ class PieceMove
 
 public:
 	PieceMove();
-	PieceMove(std::string notation);
+	PieceMove(std::string notation, int* turnCounter);
 
 	std::vector<sf::Vector2i> legalMoves(sf::Vector2i selectedTile, std::string notation, std::string piece);
 
@@ -31,6 +31,7 @@ public:
 	std::vector<sf::Vector2i> GetMoves(char color, std::string notation);
 
 private:
+	int* turnCounter;
 	
 	sf::Vector2i selectedTile;
 

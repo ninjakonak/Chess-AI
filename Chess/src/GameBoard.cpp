@@ -1,7 +1,7 @@
 #include "../include/GameBoard.h"
 
 GameBoard::GameBoard() {
-
+	
 }
 
 
@@ -24,14 +24,15 @@ void GameBoard::InitVariables() {
 
 	this->InitTile();
 	
-
+	
 	this->pieceWidth = 48;
 	this->pieceHeight = 48;
 	this->selected = false;
+	this->turnCounter = 0;
 
 	this->pieceTexture.setSize(sf::Vector2f(this->pieceWidth, this->pieceHeight));
 
-	this->PieceMover = PieceMove(this->notation);
+	this->PieceMover = PieceMove(this->notation, &this->turnCounter);
 
 	
 	
@@ -212,7 +213,7 @@ void GameBoard::CheckEvents() {
 
 							this->notation = tempNotation;
 
-							std::cout << this->notation << "\n";
+							
 							
 
 							
@@ -244,11 +245,16 @@ void GameBoard::CheckEvents() {
 								
 								this->PieceMover.ChangeNotation(this->notation);
 
-
+								
 								
 
-								this->Turn++;
+								this->Turn ++;
 								this->Turn %= 2;
+								
+								if (this->Turn == 0) {
+									this->turnCounter++;
+								}
+
 								this->selected = false;
 							}
 							else {

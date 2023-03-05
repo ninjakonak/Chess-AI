@@ -9,19 +9,28 @@ void Piece::SetCoordinates(sf::Vector2i tile) {
 }
 
 void Piece::CheckMoved() {
+
+	if (this->movedOnce == true) {
+		this->movedMore = true;
+	}
+
 	if (this->movedOnce == false) {
 		this->movedOnce = true;
 	}
 }
 
-void Piece::Init(char color, sf::Vector2i position) {
+void Piece::Init(char color, sf::Vector2i position, int* turnCounter) {
 	this->SetColor(color);
 	this->SetCoordinates(position);
 	this->movedOnce = false;
+	this->movedMore = false;
+
+	this->turnCounter = turnCounter;
+	
 }
 
 std::string Piece::findSquareValue(std::string notation, sf::Vector2i tile) {
-
+	
 	sf::Vector2i pos = sf::Vector2i(0,0);
 	
 	

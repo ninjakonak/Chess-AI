@@ -1,18 +1,9 @@
 #include "../../include/PieceInclude/Pawn.h"
 
-Pawn::Pawn() {
 
-}
 
-Pawn::Pawn(char color, sf::Vector2i tile) {
-	this->color = color;
-	this->coordinates = tile;
-	
-}
-
-std::vector<sf::Vector2i> Pawn::legalMoves(std::string notation, sf::Vector2i selectedTile) {
+std::vector<sf::Vector2i> Pawn::legalMoves(std::string notation, sf::Vector2i selectedTile, std::vector<Pawn> pawns) {
 	std::vector<sf::Vector2i> moves;
-	
 	int yColor;
 	if (this->color == 'W') {
 		yColor = -1;
@@ -42,5 +33,37 @@ std::vector<sf::Vector2i> Pawn::legalMoves(std::string notation, sf::Vector2i se
 		moves.push_back(sf::Vector2i(selectedTile.x + 1, selectedTile.y + yColor));
 	}
 
+
+	
+
+	for (auto& pawn : pawns) {
+		if (pawn.CheckEnPassant(pawns) && pawn.coordinates.y == this->coordinates.y && (pawn.coordinates.x == this->coordinates.x + 1 || pawn.coordinates.x == this->coordinates.x - 1)) {
+			moves.push_back(sf::Vector2i(pawn.coordinates.x, pawn.coordinates.y + yColor));
+		}
+	}
+
 	return moves;
+}
+
+void Pawn::SetFirstMove(int firstMove) {
+	this->firstMove = firstMove;
+}
+
+bool Pawn::CheckEnPassant(std::vector<Pawn> pawns) {
+	int moveDecrement;
+	for (auto& pawn : pawns) {
+		if (pawn.color == 'W') {
+			moveDecrement = -1;
+		}
+		else {
+			moveDecrement = 0;
+		}
+		
+
+		if (this->firstMove == *this->turnCounter + moveDecrement && pawn.color != this->color && firstMove != -1) {
+			return true;
+		}
+	}
+	
+	return false;
 }

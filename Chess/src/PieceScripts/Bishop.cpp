@@ -1,13 +1,6 @@
 #include "../../include/PieceInclude/Bishop.h"
 
-Bishop::Bishop() {
 
-}
-
-Bishop::Bishop(char color, sf::Vector2i tile) {
-	this->coordinates = tile;
-	this->color = color;
-}
 
 std::vector<sf::Vector2i> Bishop::legalMoves(std::string notation, sf::Vector2i selectedTile) {
 	std::vector<sf::Vector2i> moves;

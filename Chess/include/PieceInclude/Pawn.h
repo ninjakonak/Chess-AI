@@ -8,10 +8,14 @@ class Pawn :public Piece
 {
 public:
 
-	std::vector<sf::Vector2i> legalMoves(std::string notation, sf::Vector2i selectedTile);
+	std::vector<sf::Vector2i> legalMoves(std::string notation, sf::Vector2i selectedTile, std::vector<Pawn> pawns);
+	bool CheckEnPassant(std::vector<Pawn> pawns);
 
-	Pawn();
-	Pawn(char color, sf::Vector2i tile);
+	void SetFirstMove(int firstMove);
+
+	int firstMove = -1;
+
+	
 };
 
 

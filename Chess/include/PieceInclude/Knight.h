@@ -10,8 +10,7 @@ public:
 
 	std::vector<sf::Vector2i> legalMoves(std::string notation, sf::Vector2i selectedTile);
 
-	Knight();
-	Knight(char color, sf::Vector2i tile);
+	
 };
 
 

@@ -20,11 +20,16 @@ public:
 	void SetColor(char color);
 	void SetCoordinates(sf::Vector2i tile);
 	void CheckMoved();
-	void Init(char color, sf::Vector2i position);
+	void Init(char color, sf::Vector2i position, int* turnCounter);
 
 	std::string findSquareValue(std::string notation, sf::Vector2i tile);
 
 	bool movedOnce;
+	bool movedMore;
+
+	int* turnCounter;
+
+	
 };
 
 #endif

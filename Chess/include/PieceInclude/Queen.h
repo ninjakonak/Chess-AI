@@ -15,8 +15,8 @@ public:
 
 	std::vector<sf::Vector2i> Lines(std::string notation, sf::Vector2i selectedTile);
 
-	Queen();
-	Queen(char color, sf::Vector2i tile);
+	
+	
 };
 
 

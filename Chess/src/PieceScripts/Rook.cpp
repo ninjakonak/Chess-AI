@@ -1,14 +1,6 @@
 #include "../../include/PieceInclude/Rook.h"
 
 
-Rook::Rook() {
-
-}
-
-Rook::Rook(char color, sf::Vector2i tile) {
-	this->coordinates = tile;
-	this->color = color;
-}
 
 std::vector<sf::Vector2i> Rook::legalMoves(std::string notation, sf::Vector2i selectedTile) {
 	std::vector<sf::Vector2i> moves;

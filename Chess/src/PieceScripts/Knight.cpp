@@ -1,13 +1,6 @@
 #include "../../include/PieceInclude/Knight.h"
 
-Knight::Knight() {
 
-}
-
-Knight::Knight(char color, sf::Vector2i tile) {
-	this->coordinates = tile;
-	this->color = color;
-}
 
 std::vector<sf::Vector2i> Knight::legalMoves(std::string notation, sf::Vector2i selectedTile) {
 
