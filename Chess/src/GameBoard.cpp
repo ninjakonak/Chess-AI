@@ -243,6 +243,26 @@ void GameBoard::CheckEvents() {
 							if (changeNotation) {
 								this->notation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue, true);
 								
+
+								/*
+								std::cout << "\n \n \n \n";
+								std::cout << "\n/////////////////////////////////////";
+
+								for (int x = 0; x < this->notation.length(); x++) {
+
+								if (x % 24 == 0) {
+								std::cout << "\n";
+								}
+
+								std::cout << this->notation.at(x);
+
+								}
+								std::cout << "\n///////////////////////////////////// \n";
+								//std::cout << "turn:" << *this->turnCounter << "\n";
+								std::cout << "\n \n \n \n";
+								*/
+
+
 								this->PieceMover.ChangeNotation(this->notation);
 
 								

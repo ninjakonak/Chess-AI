@@ -30,8 +30,13 @@ public:
 	
 	std::vector<sf::Vector2i> GetMoves(char color, std::string notation);
 
+
 private:
 	int* turnCounter;
+
+	
+
+	template <typename T> int FindPieceIndex(sf::Vector2i tile, std::vector<T> pieceArray);
 	
 	sf::Vector2i selectedTile;
 
@@ -58,6 +63,9 @@ private:
 	std::vector<King> kings;
 
 	void InitPieces();
+
+	void UpdatePieceCoordinates(char piece, sf::Vector2i selectedTile, sf::Vector2i targetTile);
+	void DeletePieces(sf::Vector2i targetTile);
 	void UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece);
 
 	std::string FindSquareVal(int x, int y, std::string notation);

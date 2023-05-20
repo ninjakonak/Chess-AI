@@ -130,11 +130,23 @@ std::vector<sf::Vector2i> PieceMove::legalMoves(sf::Vector2i selectedTile, std::
 	return moves;
 }
 
-void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece) {
+template <typename T> int PieceMove::FindPieceIndex(sf::Vector2i tile, std::vector<T> pieceArray) {
+	int index = 0;
 	
+	for (auto& e : pieceArray) {
+		if (e.coordinates == tile) {
+			return index;
+		}
+		index++;
+	}
+	return -1;
+}
+
+void PieceMove::UpdatePieceCoordinates(char piece, sf::Vector2i selectedTile, sf::Vector2i targetTile) {
 	if (piece == 'p') {
 		for (auto& piece : this->pawns) {
-			if (selectedTile == piece.coordinates) {
+
+			if (piece.coordinates == selectedTile) {
 
 				if (abs(targetTile.y - piece.coordinates.y) == 2) {
 					piece.SetFirstMove(*this->turnCounter);
@@ -145,7 +157,9 @@ void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile,
 				if (!piece.movedMore) {
 					piece.CheckMoved();
 				}
+
 			}
+
 		}
 	}
 
@@ -156,7 +170,6 @@ void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile,
 			}
 		}
 	}
-
 	if (piece == 'r') {
 		for (auto& piece : this->rooks) {
 			if (selectedTile == piece.coordinates) {
@@ -196,6 +209,66 @@ void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile,
 			}
 		}
 	}
+}
+
+void PieceMove::DeletePieces(sf::Vector2i targetTile) {
+	std::string targetPiece = this->FindSquareVal(targetTile.x, targetTile.y, this->notation);
+	int index = -1;
+
+	if (targetPiece[1] == 'p') {
+		index = this->FindPieceIndex(targetTile, this->pawns);
+		this->pawns.erase(this->pawns.begin() + index);
+	}
+
+	if (targetPiece[1] == 'b') {
+		index = this->FindPieceIndex(targetTile, this->bishops);
+		this->bishops.erase(this->bishops.begin() + index);
+	}
+
+	if (targetPiece[1] == 'n') {
+		index = this->FindPieceIndex(targetTile, this->knights);
+		this->knights.erase(this->knights.begin() + index);
+	}
+
+	if (targetPiece[1] == 'r') {
+		index = this->FindPieceIndex(targetTile, this->rooks);
+		this->rooks.erase(this->rooks.begin() + index);
+	}
+
+	if (targetPiece[1] == 'q') {
+		index = this->FindPieceIndex(targetTile, this->queens);
+		this->queens.erase(this->queens.begin() + index);
+	}
+
+	if (targetPiece[1] == 'k') {
+		index = this->FindPieceIndex(targetTile, this->kings);
+		this->kings.erase(this->kings.begin() + index);
+	}
+}
+
+
+void PieceMove::UpdatePieces(sf::Vector2i selectedTile, sf::Vector2i targetTile, char piece) {
+
+	
+								std::cout << "\n \n \n \n";
+								std::cout << "\n/////////////////////////////////////";
+
+								for (int x = 0; x < this->notation.length(); x++) {
+
+								if (x % 24 == 0) {
+								std::cout << "\n";
+								}
+
+								std::cout << this->notation.at(x);
+
+								}
+								std::cout << "\n///////////////////////////////////// \n";
+								//std::cout << "turn:" << *this->turnCounter << "\n";
+								std::cout << "\n \n \n \n";
+								
+
+	this->DeletePieces(targetTile);
+	this->UpdatePieceCoordinates(piece, selectedTile, targetTile);
 }
 
 std::string PieceMove::NewNotation(std::string notation, sf::Vector2i selectedTile, sf::Vector2i targetTile, std::string selectedPieceValue, bool change) {
@@ -277,6 +350,8 @@ std::string PieceMove::NewNotation(std::string notation, sf::Vector2i selectedTi
 	std::cout << "turn:" << *this->turnCounter << "\n";
 	std::cout << "\n \n \n \n";
 	*/
+
+	
 
 	return newNotation;
 }
