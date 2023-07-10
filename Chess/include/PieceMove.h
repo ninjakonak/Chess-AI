@@ -27,8 +27,19 @@ public:
 
 	std::string NewNotation(std::string notation, sf::Vector2i selectedTile, sf::Vector2i targetTile, std::string selectedPieceValue, bool change);
 	void ChangeNotation(std::string notation);
+
+	struct LegalPieceMove {
+		sf::Vector2i coordinates;
+		std::string pieceName;
+	};
+
+	std::vector<sf::Vector2i> ExtractMoveCoordinates(std::vector<LegalPieceMove> legalPieceMoves);
+
+	LegalPieceMove legalPieceMove;
 	
-	std::vector<sf::Vector2i> GetMoves(char color, std::string notation);
+	std::vector<LegalPieceMove> GetMoves(char color, std::string notation, bool includeCastling);
+
+	
 
 
 private:

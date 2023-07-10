@@ -9,6 +9,8 @@ PieceMove::PieceMove(std::string notation, int* turnCounter) {
 
 	this->turnCounter = turnCounter;
 
+	this->legalPieceMove.coordinates = sf::Vector2i();
+
 	this->InitPieces();
 }
 
@@ -55,6 +57,17 @@ void PieceMove::InitPieces() {
 	}
 
 	
+}
+
+std::vector<sf::Vector2i> PieceMove::ExtractMoveCoordinates(std::vector<LegalPieceMove> legalPieceMoves) {
+
+	std::vector<sf::Vector2i> extractedMoveCoordinates;
+
+	for (auto& e : legalPieceMoves) {
+		extractedMoveCoordinates.push_back(e.coordinates);
+	}
+
+	return extractedMoveCoordinates;
 }
 
 std::vector<sf::Vector2i> PieceMove::legalMoves(sf::Vector2i selectedTile, std::string notation, std::string piece) {
@@ -121,11 +134,11 @@ std::vector<sf::Vector2i> PieceMove::legalMoves(sf::Vector2i selectedTile, std::
 				else {
 					color = 'B';
 				}
+				
 
-				moves = piece.legalMoves(notation, selectedTile, this->rooks, this->GetMoves(color, notation));
+				moves = piece.legalMoves(notation, selectedTile, this->rooks, this->ExtractMoveCoordinates(this->GetMoves(color, notation, true)));
 
 				
-				std::vector<sf::Vector2i> checkMoves = this->GetMoves(color, notation);
 
 				
 			}
@@ -267,12 +280,17 @@ std::string PieceMove::NewNotation(std::string notation, sf::Vector2i selectedTi
 	bool castleQueen = false;
 	bool castleKing = false;
 
+	bool promote = false;
+
 	std::string newNotation = "";
 	if (change) {
 		this->UpdatePieces(selectedTile, targetTile, selectedPieceValue[1]);
 	}
 
-
+	if ((selectedPieceValue == std::string("Wp") && targetTile.y == 0) || (selectedPieceValue == std::string("Bp") && targetTile.y == 7)) {
+		promote = true;
+	}
+	
 	if (selectedPieceValue[1] == 'p' && selectedTile.x != targetTile.x && (std::string("") + FindSquareVal(targetTile.x, targetTile.y, notation) == "00")) {
 		enPassant = true;
 	}
@@ -302,9 +320,22 @@ std::string PieceMove::NewNotation(std::string notation, sf::Vector2i selectedTi
 		
 
 		if (onTargetTile) {
-			newNotation += selectedPieceValue[0];
-			newNotation += selectedPieceValue[1];
-			newNotation += ',';
+			if (promote) {
+				newNotation += selectedPieceValue[0];
+				newNotation += 'q';
+				newNotation += ',';
+
+
+				this->queen.Init(selectedPieceValue[0], sf::Vector2i(xPos, yPos), this->turnCounter);
+				this->DeletePieces(targetTile);
+				this->queens.push_back(this->queen);
+				
+			}
+			else {
+				newNotation += selectedPieceValue[0];
+				newNotation += selectedPieceValue[1];
+				newNotation += ',';
+			}
 		}
 
 		else if (onSelectedTile || (enPassant && xPos == targetTile.x && yPos == selectedTile.y)) {
@@ -381,9 +412,15 @@ void PieceMove::ChangeNotation(std::string notation) {
 	this->notation = notation;
 }
 
-std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
+std::vector<PieceMove::LegalPieceMove> PieceMove::GetMoves(char color, std::string notation, bool includeCastling)
 {
-	std::vector<sf::Vector2i> moves;
+	
+
+	LegalPieceMove legalPieceMove;
+
+	std::vector<LegalPieceMove> legalPieceMoves;
+
+	//std::vector<sf::Vector2i> moves;
 
 	if (color == 'W') {
 		color = 'B';
@@ -391,19 +428,34 @@ std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
 	else {
 		color = 'W';
 	}
+	
 
 	for (auto& e : this->bishops) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "b") {
 			for (auto& move : (e.legalMoves(notation, e.coordinates))) {
-				moves.push_back(move);
+
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'b';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
 
 	for (auto& e : this->kings) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "k") {
-			for (auto& move : (e.legalMoves(notation, e.coordinates, this->rooks, std::vector<sf::Vector2i>()))) {
-				moves.push_back(move);
+			std::vector<sf::Vector2i> castlingMoves;
+			if (includeCastling) {
+
+				castlingMoves = ExtractMoveCoordinates(this->GetMoves(color, notation, false));
+			}
+			else {
+				castlingMoves = std::vector<sf::Vector2i>();
+			}
+
+			for (auto& move : (e.legalMoves(notation, e.coordinates, this->rooks, castlingMoves))) {
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'k';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
@@ -411,7 +463,9 @@ std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
 	for (auto& e : this->queens) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "q") {
 			for (auto& move : (e.legalMoves(notation, e.coordinates))) {
-				moves.push_back(move);
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'q';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
@@ -419,7 +473,9 @@ std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
 	for (auto& e : this->rooks) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "r") {
 			for (auto& move : (e.legalMoves(notation, e.coordinates))) {
-				moves.push_back(move);
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'r';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
@@ -427,7 +483,9 @@ std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
 	for (auto& e : this->pawns) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "p") {
 			for (auto& move : (e.legalMoves(notation, e.coordinates, this->pawns))) {
-				moves.push_back(move);
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'p';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
@@ -435,11 +493,13 @@ std::vector<sf::Vector2i> PieceMove::GetMoves(char color, std::string notation)
 	for (auto& e : this->knights) {
 		if (e.color == color && this->FindSquareVal(e.coordinates.x, e.coordinates.y, notation) == std::string("") + color + "n") {
 			for (auto& move : (e.legalMoves(notation, e.coordinates))) {
-				moves.push_back(move);
+				legalPieceMove.coordinates = move;
+				legalPieceMove.pieceName = e.color + 'k';
+				legalPieceMoves.push_back(legalPieceMove);
 			}
 		}
 	}
-	return moves;
+	return legalPieceMoves;
 }
 
 std::string PieceMove::FindSquareVal(int x, int y, std::string notation) {

@@ -219,16 +219,24 @@ void GameBoard::CheckEvents() {
 							
 							
 							char color;
+							char oppositeColor;
 
 							if (this->Turn == 0) {
 								color = 'W';
+								oppositeColor = 'B';
 							}
 							else {
 								color = 'B';
+								oppositeColor = 'W';
 							}
 
-							std::vector<sf::Vector2i> moves = this->PieceMover.GetMoves(color, tempNotation);
+							
 
+							std::vector<sf::Vector2i> moves = this->PieceMover.ExtractMoveCoordinates(this->PieceMover.GetMoves(color, tempNotation, false));
+							std::vector<sf::Vector2i> possibleMoves = this->PieceMover.ExtractMoveCoordinates(this->PieceMover.GetMoves(oppositeColor, this->notation, false));
+							std::vector<sf::Vector2i> strictMoves = std::vector<sf::Vector2i>();
+
+							
 							
 							bool changeNotation = true;
 
@@ -236,9 +244,10 @@ void GameBoard::CheckEvents() {
 								if(this->FindSquareValue(e.x, e.y) == std::string("") + color + "k"){
 									changeNotation = false;
 								}
-
-								
 							}
+
+							
+							
 							
 							if (changeNotation) {
 								this->notation = this->PieceMover.NewNotation(this->notation, this->selectedTile, this->targetTile, this->selectedPieceValue, true);
